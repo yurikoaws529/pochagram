@@ -1,0 +1,12 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#2196F3"/>
+  <rect x="70" y="120" width="160" height="80" rx="15" fill="#E3F2FD"/>
+  <rect x="80" y="110" width="140" height="15" rx="7" fill="#BBDEFB"/>
+  <circle cx="140" cy="140" r="12" fill="#E3F2FD"/>
+  <path d="M 125 135 Q 140 125 155 135" stroke="#BBDEFB" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="80" r="3" fill="#FFF9C4"/>
+  <circle cx="120" cy="70" r="2" fill="#FFF9C4"/>
+  <circle cx="180" cy="85" r="2" fill="#FFF9C4"/>
+  <text x="150" y="240" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">深い眠り</text>
+  <text x="150" y="260" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">質の良い睡眠</text>
+</svg>

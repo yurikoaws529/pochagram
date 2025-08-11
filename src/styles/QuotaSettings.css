@@ -1,0 +1,147 @@
+.quota-settings {
+  width: 100%;
+  padding: 0;
+}
+
+.quota-settings h2 {
+  color: #262626;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.settings-section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #efefef;
+}
+
+.settings-section:last-of-type {
+  border-bottom: none;
+}
+
+.settings-section h3 {
+  color: #262626;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #262626;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #ff6b9d;
+  box-shadow: 0 0 0 2px rgba(255, 107, 157, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.audience-composition {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.audience-composition h4 {
+  margin-bottom: 15px;
+  color: #262626;
+  font-size: 16px;
+}
+
+.composition-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.composition-item:last-child {
+  margin-bottom: 0;
+}
+
+.difficulty {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.difficulty.easy {
+  background-color: #4caf50;
+}
+
+.difficulty.medium {
+  background-color: #ff9800;
+}
+
+.difficulty.hard {
+  background-color: #f44336;
+}
+
+.composition-item span:nth-child(2) {
+  font-weight: 500;
+  color: #262626;
+}
+
+.composition-item small {
+  color: #8e8e8e;
+  font-size: 11px;
+}
+
+.btn-primary {
+  background-color: #ff6b9d;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #ff4785;
+}
+
+@media (max-width: 768px) {
+  .quota-settings {
+    padding: 20px;
+  }
+  
+  .composition-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}

@@ -1,0 +1,657 @@
+/* DiscussionDetail.css - PostDetailのスタイルを踏襲 */
+
+.discussion-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.discussion-detail-modal {
+  background-color: white;
+  border-radius: 12px;
+  width: 95%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.discussion-detail-content {
+  display: flex;
+  height: 85vh;
+}
+
+.discussion-detail-conversation {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #efefef;
+}
+
+.conversation-header {
+  padding: 20px;
+  border-bottom: 1px solid #efefef;
+  background: #f8f9fa;
+}
+
+.conversation-header h2 {
+  color: #262626;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.topic-display h3 {
+  color: #495057;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.meta-info {
+  display: flex;
+  gap: 15px;
+  font-size: 16px;
+  color: #8e8e8e;
+}
+
+.conversation-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.conversation-round {
+  margin-bottom: 25px;
+}
+
+.round-header {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.round-number {
+  background: #ff6b9d;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.round-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #ff6b9d;
+}
+
+.message-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 2px solid #dee2e6;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.character-name {
+  color: #262626;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.character-age {
+  color: #8e8e8e;
+  font-size: 16px;
+}
+
+.message-text {
+  color: #495057;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.discussion-detail-summary {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+.analysis-header {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.total-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border: 4px solid;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.score-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #262626;
+}
+
+.score-max {
+  font-size: 12px;
+  color: #8e8e8e;
+  margin-top: -2px;
+}
+
+.score-info {
+  text-align: center;
+}
+
+.score-label {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.score-description {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.analysis-breakdown {
+  margin-bottom: 25px;
+}
+
+.analysis-breakdown h4 {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.breakdown-item {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #ff6b9d;
+}
+
+.breakdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.breakdown-name {
+  color: #262626;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.breakdown-score {
+  color: #495057;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.breakdown-bar {
+  height: 6px;
+  background: #efefef;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.breakdown-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.breakdown-description {
+  color: #8e8e8e;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.analysis-comment {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+}
+
+.analysis-comment h4 {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.analysis-comment p {
+  color: #495057;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.participants-info {
+  margin-bottom: 25px;
+}
+
+.participants-info h4 {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.participants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.participant-info-card {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.participant-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.participant-info-card .participant-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 1px solid #dee2e6;
+}
+
+.participant-details {
+  flex: 1;
+}
+
+.participant-name {
+  color: #262626;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.participant-age {
+  color: #8e8e8e;
+  font-size: 11px;
+}
+
+.participant-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.stat-label {
+  color: #8e8e8e;
+}
+
+.stat-value {
+  color: #495057;
+  font-weight: 500;
+}
+
+.debug-info {
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #6c757d;
+}
+
+.debug-info h4 {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.debug-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.debug-label {
+  color: #8e8e8e;
+}
+
+.debug-value {
+  color: #495057;
+  font-weight: 500;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .discussion-detail-content {
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+  }
+  
+  .discussion-detail-conversation {
+    border-right: none;
+    border-bottom: 1px solid #efefef;
+    max-height: 50vh;
+  }
+  
+  .discussion-detail-summary {
+    max-height: 40vh;
+  }
+  
+  .conversation-header {
+    padding: 15px;
+  }
+  
+  .conversation-content {
+    padding: 15px;
+  }
+  
+  .discussion-detail-summary {
+    padding: 15px;
+  }
+  
+  .participants-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .debug-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 司会者による意見集約のスタイル */
+.summary-message {
+  background-color: #fff5f8;
+  border: 2px solid #ff6b9d;
+  border-radius: 12px;
+  margin: 8px 0;
+  padding: 4px;
+}
+
+.summary-message .message-content {
+  background-color: transparent;
+}
+
+.summary-message .message-text {
+  font-weight: 500;
+  line-height: 1.6;
+  color: #2c2c2c;
+}
+
+.conversation-round:has(.summary-message) .round-header {
+  background-color: #ff6b9d;
+  color: white;
+}
+
+.conversation-round:has(.summary-message) .round-number {
+  font-weight: bold;
+}
+
+/* 司会者による総括セクション */
+.moderator-summary {
+  border: 2px solid #ff6b9d;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #fff5f8;
+  margin-bottom: 20px;
+}
+
+.summary-header {
+  margin-bottom: 12px;
+}
+
+.moderator-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.moderator-avatar {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #ff6b9d;
+}
+
+.moderator-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.moderator-name {
+  font-weight: 600;
+  color: #262626;
+  font-size: 16px;
+}
+
+.moderator-role {
+  font-size: 12px;
+  color: #8e8e8e;
+}
+
+.summary-content {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+}
+
+.summary-content p {
+  margin: 0;
+  line-height: 1.6;
+  color: #262626;
+  font-size: 14px;
+}
+
+.no-summary {
+  text-align: center;
+  padding: 40px;
+  color: #8e8e8e;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+}
+
+/* 参加者情報セクション */
+.participants-info {
+  margin-top: 20px;
+}
+
+.participants-info h4 {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.participants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.participant-info-card {
+  background: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.participant-info-card.moderator-card {
+  border: 2px solid #ff6b9d;
+  background-color: #fff5f8;
+}
+
+.participant-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.participant-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 1px solid #dee2e6;
+}
+
+.participant-details {
+  flex: 1;
+}
+
+.participant-name {
+  font-weight: 600;
+  color: #262626;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.participant-age {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.participant-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  color: #8e8e8e;
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  color: #262626;
+  font-weight: 500;
+}
+
+.moderator-badge {
+  background-color: #ff6b9d;
+  color: white;
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 8px;
+  font-weight: bold;
+}

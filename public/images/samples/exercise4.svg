@@ -1,0 +1,12 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#4CAF50"/>
+  <circle cx="150" cy="100" r="18" fill="#E8F5E8"/>
+  <rect x="140" y="118" width="20" height="30" rx="10" fill="#E8F5E8"/>
+  <rect x="125" y="130" width="15" height="25" rx="7" fill="#E8F5E8"/>
+  <rect x="160" y="130" width="15" height="25" rx="7" fill="#E8F5E8"/>
+  <circle cx="150" cy="170" r="25" fill="none" stroke="#E8F5E8" stroke-width="3"/>
+  <rect x="135" y="155" width="12" height="20" rx="6" fill="#E8F5E8"/>
+  <rect x="153" y="155" width="12" height="20" rx="6" fill="#E8F5E8"/>
+  <text x="150" y="220" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">サイクリング</text>
+  <text x="150" y="240" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">45分</text>
+</svg>

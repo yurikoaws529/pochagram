@@ -1,0 +1,117 @@
+.meal-log-page {
+  padding: 20px 0;
+}
+
+.prince-feedback {
+  margin: 30px 0;
+}
+
+.meal-history {
+  margin-top: 40px;
+}
+
+.meal-history h2 {
+  color: #ff6b9d;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.meal-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.meal-history-item {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.meal-history-item:last-child {
+  border-bottom: none;
+}
+
+.meal-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.meal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meal-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.meal-details {
+  flex-grow: 1;
+}
+
+.meal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.meal-header h3 {
+  margin: 0;
+  color: #495057;
+}
+
+.meal-date {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.meal-description {
+  margin-bottom: 10px;
+}
+
+.meal-rating {
+  color: #ff6b9d;
+}
+
+.no-data {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 20px 0;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 40px;
+}
+
+.no-data-message p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #6c757d;
+}
+
+@media (max-width: 576px) {
+  .meal-history-item {
+    flex-direction: column;
+  }
+
+  .meal-image {
+    width: 100%;
+    height: 200px;
+  }
+}

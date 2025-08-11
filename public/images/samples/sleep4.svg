@@ -1,0 +1,13 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#2196F3"/>
+  <rect x="60" y="140" width="180" height="70" rx="12" fill="#E3F2FD"/>
+  <rect x="70" y="130" width="160" height="12" rx="6" fill="#BBDEFB"/>
+  <circle cx="150" cy="160" r="10" fill="#E3F2FD"/>
+  <path d="M 135 155 Q 150 145 165 155" stroke="#BBDEFB" stroke-width="3" fill="none"/>
+  <rect x="40" y="60" width="220" height="20" rx="10" fill="#1A237E" opacity="0.3"/>
+  <circle cx="80" cy="90" r="2" fill="#FFF9C4"/>
+  <circle cx="220" cy="95" r="1" fill="#FFF9C4"/>
+  <circle cx="180" cy="80" r="1" fill="#FFF9C4"/>
+  <text x="150" y="240" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">夜間睡眠</text>
+  <text x="150" y="260" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">リラックス</text>
+</svg>

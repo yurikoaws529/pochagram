@@ -1,0 +1,14 @@
+.progress-page {
+  padding: 20px 0;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 40px;
+}
+
+.no-data-message p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #6c757d;
+}

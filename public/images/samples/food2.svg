@@ -1,0 +1,10 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#FF6B9D"/>
+  <rect x="100" y="100" width="100" height="60" rx="10" fill="#FFE4E1"/>
+  <circle cx="130" cy="120" r="8" fill="#32CD32"/>
+  <circle cx="150" cy="120" r="8" fill="#FF6347"/>
+  <circle cx="170" cy="120" r="8" fill="#FFD700"/>
+  <rect x="110" y="140" width="80" height="15" rx="7" fill="#8B4513"/>
+  <text x="150" y="200" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">昼食</text>
+  <text x="150" y="220" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">野菜たっぷり</text>
+</svg>
