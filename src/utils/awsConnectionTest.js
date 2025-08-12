@@ -1,17 +1,15 @@
 import rekognitionService from '../services/rekognitionService';
 
-// AWS接続テスト
+// AWS接続テスト（API経由）
 export const testAWSConnection = async () => {
-  console.log('=== AWS Connection Test ===');
+  console.log('=== AWS Connection Test (API) ===');
   
   try {
-    // 1. 設定の検証
-    console.log('1. Validating AWS configuration...');
-    rekognitionService.initialize();
-    console.log('✅ AWS configuration is valid');
-
+    // 1. API接続確認
+    console.log('1. Testing API connection...');
+    
     // 2. Rekognitionサービスの疎通確認
-    console.log('2. Testing Rekognition service...');
+    console.log('2. Testing Rekognition service via API...');
     
     // 小さなテスト画像を作成（1x1ピクセルの透明PNG）
     const testImageBlob = createTestImage();
@@ -22,23 +20,23 @@ export const testAWSConnection = async () => {
         minConfidence: 50
       });
       
-      console.log('✅ Rekognition service is accessible');
+      console.log('✅ Rekognition API is accessible');
       console.log('Test result:', labels);
       
       return {
         success: true,
-        message: 'AWS connection test passed',
+        message: 'AWS API connection test passed',
         details: {
-          region: process.env.REACT_APP_AWS_REGION,
+          apiUrl: process.env.REACT_APP_REKOGNITION_API_URL,
           labelsDetected: labels.length
         }
       };
       
     } catch (rekognitionError) {
-      console.error('❌ Rekognition service error:', rekognitionError);
+      console.error('❌ Rekognition API error:', rekognitionError);
       
       // エラーの種類を判定
-      if (rekognitionError.code === 'InvalidImageFormatException') {
+      if (rekognitionError.message.includes('InvalidImageFormatException')) {
         return {
           success: true,
           message: 'Connection OK (expected image format error)',
@@ -50,14 +48,14 @@ export const testAWSConnection = async () => {
     }
     
   } catch (error) {
-    console.error('❌ AWS connection test failed:', error);
+    console.error('❌ AWS API connection test failed:', error);
     
     return {
       success: false,
-      message: 'AWS connection test failed',
+      message: 'AWS API connection test failed',
       error: error.message,
       details: {
-        errorCode: error.code,
+        apiUrl: process.env.REACT_APP_REKOGNITION_API_URL,
         errorType: error.name
       }
     };

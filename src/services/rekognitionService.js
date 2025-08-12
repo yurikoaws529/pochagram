@@ -1,50 +1,39 @@
-import { createRekognitionClient, validateAWSConfig } from '../utils/awsConfig';
-
 class RekognitionService {
   constructor() {
-    this.rekognition = null;
-    this.isConfigured = false;
-  }
-
-  // 初期化
-  initialize() {
-    if (!validateAWSConfig()) {
-      throw new Error('AWS configuration is invalid');
-    }
-    
-    this.rekognition = createRekognitionClient();
-    this.isConfigured = true;
-    console.log('Rekognition service initialized');
+    this.apiUrl = process.env.REACT_APP_REKOGNITION_API_URL || 'http://localhost:3001/api/rekognition';
   }
 
   // 画像からラベル（物体・食事）を検出
   async detectLabels(imageFile, options = {}) {
-    if (!this.isConfigured) {
-      this.initialize();
-    }
-
     const {
       maxLabels = 10,
       minConfidence = 70
     } = options;
 
     try {
-      // 画像をバイト配列に変換
-      const imageBytes = await this.fileToBytes(imageFile);
-      
-      const params = {
-        Image: {
-          Bytes: imageBytes
-        },
-        MaxLabels: maxLabels,
-        MinConfidence: minConfidence
-      };
+      const formData = new FormData();
+      formData.append('image', imageFile);
+      formData.append('maxLabels', maxLabels.toString());
+      formData.append('minConfidence', minConfidence.toString());
 
-      console.log('Calling Rekognition detectLabels...');
-      const result = await this.rekognition.detectLabels(params).promise();
+      console.log('Calling Rekognition API detectLabels...');
+      const response = await fetch(`${this.apiUrl}/detect-labels`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
       
-      console.log('Rekognition result:', result);
-      return result.Labels;
+      if (!result.success) {
+        throw new Error(result.error || 'Rekognition API error');
+      }
+
+      console.log('Rekognition result:', result.labels);
+      return result.labels;
     } catch (error) {
       console.error('Rekognition detectLabels error:', error);
       throw error;
@@ -53,24 +42,28 @@ class RekognitionService {
 
   // 画像からテキストを検出
   async detectText(imageFile) {
-    if (!this.isConfigured) {
-      this.initialize();
-    }
-
     try {
-      const imageBytes = await this.fileToBytes(imageFile);
-      
-      const params = {
-        Image: {
-          Bytes: imageBytes
-        }
-      };
+      const formData = new FormData();
+      formData.append('image', imageFile);
 
-      console.log('Calling Rekognition detectText...');
-      const result = await this.rekognition.detectText(params).promise();
+      console.log('Calling Rekognition API detectText...');
+      const response = await fetch(`${this.apiUrl}/detect-text`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
       
-      console.log('Text detection result:', result);
-      return result.TextDetections;
+      if (!result.success) {
+        throw new Error(result.error || 'Rekognition API error');
+      }
+
+      console.log('Text detection result:', result.textDetections);
+      return result.textDetections;
     } catch (error) {
       console.error('Rekognition detectText error:', error);
       throw error;
@@ -79,43 +72,32 @@ class RekognitionService {
 
   // 画像から顔を検出
   async detectFaces(imageFile) {
-    if (!this.isConfigured) {
-      this.initialize();
-    }
-
     try {
-      const imageBytes = await this.fileToBytes(imageFile);
-      
-      const params = {
-        Image: {
-          Bytes: imageBytes
-        },
-        Attributes: ['ALL']
-      };
+      const formData = new FormData();
+      formData.append('image', imageFile);
 
-      console.log('Calling Rekognition detectFaces...');
-      const result = await this.rekognition.detectFaces(params).promise();
+      console.log('Calling Rekognition API detectFaces...');
+      const response = await fetch(`${this.apiUrl}/detect-faces`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
       
-      console.log('Face detection result:', result);
-      return result.FaceDetails;
+      if (!result.success) {
+        throw new Error(result.error || 'Rekognition API error');
+      }
+
+      console.log('Face detection result:', result.faceDetails);
+      return result.faceDetails;
     } catch (error) {
       console.error('Rekognition detectFaces error:', error);
       throw error;
     }
-  }
-
-  // ファイルをバイト配列に変換
-  async fileToBytes(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const arrayBuffer = reader.result;
-        const bytes = new Uint8Array(arrayBuffer);
-        resolve(bytes);
-      };
-      reader.onerror = reject;
-      reader.readAsArrayBuffer(file);
-    });
   }
 
   // 食事関連のラベルをフィルタリング

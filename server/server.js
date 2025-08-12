@@ -8,6 +8,7 @@ require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const bedrockRoutes = require('./routes/bedrock');
 const openaiRoutes = require('./routes/openai');
+const rekognitionRoutes = require('./routes/rekognition');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // ルート
 app.use('/api/bedrock', bedrockRoutes);
 app.use('/api/openai', openaiRoutes);
+app.use('/api/rekognition', rekognitionRoutes);
 
 // ヘルスチェック
 app.get('/health', (req, res) => {
@@ -43,6 +45,7 @@ app.listen(PORT, () => {
   console.log(`📍 Health check: http://localhost:${PORT}/health`);
   console.log(`🤖 Bedrock API: http://localhost:${PORT}/api/bedrock`);
   console.log(`🧠 OpenAI API: http://localhost:${PORT}/api/openai`);
+  console.log(`👁️ Rekognition API: http://localhost:${PORT}/api/rekognition`);
   
   // 環境変数の確認
   console.log('🔑 環境変数確認:');
