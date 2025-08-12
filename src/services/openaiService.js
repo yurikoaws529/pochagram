@@ -64,16 +64,13 @@ class OpenAIService {
     } catch (error) {
       console.error(`OpenAI API error for ${character.name}:`, error);
       
-      // 詳細なエラー情報をログ出力
-      if (error.response) {
-        console.error('API Response Error:', error.response.data);
-      } else if (error.request) {
-        console.error('API Request Error:', error.request);
-      } else {
-        console.error('General Error:', error.message);
-      }
+      // フォールバック応答を返す（エラーを投げない）
+      const fallbackResponses = {
+        tamako: "申し訳ございません。現在システムメンテナンス中です。後ほどお試しください。",
+        tomi: "すまねぇだべ、今ちょっと調子悪いみたいだべ。また後で話しかけてくれだべ。"
+      };
       
-      throw error; // エラーを上位に伝播
+      return fallbackResponses[character.id] || "申し訳ございません。現在ご利用いただけません。";
     }
   }
 
