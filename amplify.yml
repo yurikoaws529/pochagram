@@ -1,0 +1,38 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - nvm use 16
+            - export NODE_OPTIONS=--openssl-legacy-provider
+            - npm ci
+        build:
+          commands:
+            - export NODE_OPTIONS=--openssl-legacy-provider
+            - npm run build
+      artifacts:
+        baseDirectory: build
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: /
+  - backend:
+      phases:
+        preBuild:
+          commands:
+            - cd server
+            - npm ci
+        build:
+          commands:
+            - echo "Backend build completed"
+      artifacts:
+        baseDirectory: server
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - server/node_modules/**/*
+    appRoot: server
