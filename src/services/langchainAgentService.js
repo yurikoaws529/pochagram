@@ -56,7 +56,7 @@ class BedrockService {
         character_id: characterId
       };
 
-      const response = await fetch(`${this.apiUrl}/chat/completions`, {
+      const response = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
