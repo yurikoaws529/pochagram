@@ -5,11 +5,9 @@ applications:
         preBuild:
           commands:
             - nvm use 16
-            - export NODE_OPTIONS=--openssl-legacy-provider
             - npm ci
         build:
           commands:
-            - export NODE_OPTIONS=--openssl-legacy-provider
             - npm run build
       artifacts:
         baseDirectory: build
