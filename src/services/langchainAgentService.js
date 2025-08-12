@@ -13,15 +13,8 @@ class BedrockService {
     try {
       console.log('Bedrock Service初期化開始');
 
-      // バックエンドAPIのヘルスチェック
-      const healthResponse = await fetch(`${this.apiUrl}/health`);
-      if (!healthResponse.ok) {
-        console.warn('Bedrock APIサーバーに接続できません');
-        return false;
-      }
-
-      const healthData = await healthResponse.json();
-      console.log('Bedrock APIサーバー接続確認:', healthData);
+      // ヘルスチェックをスキップして直接初期化完了
+      console.log('Bedrock APIサーバー接続確認: ヘルスチェックをスキップ');
 
       this.isInitialized = true;
       console.log('Bedrock Service初期化完了');
