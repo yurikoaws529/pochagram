@@ -5,10 +5,10 @@ const router = express.Router();
 
 // Bedrock クライアントの初期化
 const bedrockClient = new BedrockRuntimeClient({
-  region: process.env.AWS_REGION,
+  region: process.env.BACKEND_AWS_REGION || 'ap-northeast-1',
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    accessKeyId: process.env.BACKEND_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.BACKEND_AWS_SECRET_ACCESS_KEY
   }
 });
 
