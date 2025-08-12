@@ -2,19 +2,13 @@
 class OpenAIService {
   constructor() {
     this.isConfigured = false;
-    this.apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-    this.apiUrl = 'https://api.openai.com/v1/chat/completions';
+    this.apiUrl = process.env.REACT_APP_OPENAI_API_URL || 'http://localhost:3001/api/openai/chat/completions';
   }
 
   initialize() {
-    if (!this.apiKey) {
-      console.warn('OpenAI API key not configured');
-      return false;
-    }
-
     this.isConfigured = true;
     console.log('OpenAI service initialized successfully');
-    console.log('API Key configured:', this.apiKey.substring(0, 20) + '...');
+    console.log('API URL:', this.apiUrl);
     return true;
   }
 
@@ -52,8 +46,7 @@ class OpenAIService {
       const response = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.apiKey}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(requestBody)
       });
